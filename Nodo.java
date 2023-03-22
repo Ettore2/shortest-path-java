@@ -1,5 +1,6 @@
 import java.util.Vector;
 
+
 public class Nodo {
     //cose statiche
     static Vector<Nodo>nodiCreati=new Vector<>();

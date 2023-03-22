@@ -1,5 +1,6 @@
 import java.sql.Struct;
 
+
 public class Main {
     public static void main(String args[]){
         Nodo casa=new Nodo("casa");
