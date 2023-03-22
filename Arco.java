@@ -3,7 +3,7 @@ public class Arco {
     Nodo n1,n2;
 
 
-
+    
     public Arco(int perso,Nodo n1,Nodo n2){
         if(n1!=null&&n2!=null){
             this.peso=perso;
