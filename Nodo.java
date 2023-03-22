@@ -49,18 +49,26 @@ public class Nodo {
         //visito i nodi
         visitaRicorsivo(destinazione);
 
+        //creo strada ottimale
         //creo stringa return
         Vector<Nodo> nodiGiaPercorsi=new Vector<>();
+        Vector<Nodo> strada=new Vector<>();
         Nodo nScelto;
-        Nodo pos=this;
+        Nodo pos=destinazione;
+        strada.add(pos);
         s=s+this.nome+"  ";
-        while(pos!=destinazione){
+        while(pos!=this){
             nScelto=lightestNode(pos,nodiGiaPercorsi);
-            s=s+nScelto.nome+"  ";
             nodiGiaPercorsi.add(pos);
+            strada.add(pos);
             pos=nScelto;
         }
 
+        //creo stringa return
+        for(int i=strada.size()-1;i>0;i--){
+            s=s+strada.get(i).nome+"  ";
+
+        }
 
         return s;
     }
