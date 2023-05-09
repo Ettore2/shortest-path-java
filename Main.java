@@ -1,34 +1,62 @@
-import java.sql.Struct;
+import java.util.Vector;
 
 
 public class Main {
-    public static void main(String args[]){
-        Nodo casa=new Nodo("casa");
-        Nodo na=new Nodo("na");
-        Nodo nb=new Nodo("nb");
-        Nodo nc=new Nodo("nc");
-        Nodo nd=new Nodo("nd");
-        Nodo ne=new Nodo("ne");
-        Nodo ufficio=new Nodo("ufficio");
+    public static void main(String[] args){
 
-        new Arco(2,casa,na);
-        new Arco(8,casa,nd);
-        new Arco(6,na,nb);
-        new Arco(2,na,nc);
-        new Arco(2,nc,nd);
-        new Arco(3,nd,ne);
-        new Arco(9,nc,ne);
-        new Arco(1,ne,ufficio);
-        new Arco(5,nb,ufficio);
+        //creo grafo
+        Graph g = new Graph();
+
+        //creo nodi
+        Node casa = new Node("casa");
+        Node na = new Node("na");
+        Node nb = new Node("nb");
+        Node nc = new Node("nc");
+        Node nd = new Node("nd");
+        Node ne = new Node("ne");
+        Node ufficio = new Node("ufficio");
+
+        //creo archi
+        new Link(2, casa, na);
+        new Link(8, casa, nd);
+        new Link(6, na, nb);
+        new Link(2, na, nc);
+        new Link(2, nc, nd);
+        new Link(3, nd, ne);
+        new Link(9, nc, ne);
+        new Link(1, ne, ufficio);
+        new Link(5, nb, ufficio);
+
+        //aggiungo nodi a grafo
+        g.addNode(casa);
+        g.addNode(na);
+        g.addNode(nb);
+        g.addNode(nc);
+        g.addNode(nd);
+        g.addNode(ne);
+        g.addNode(ufficio);
 
 
-        System.out.print("percorso scelto: ");
-        System.out.println(casa.roadTo(ufficio));
+        //risoluzione problema
+        Vector<Node> path = g.calcolatePath(casa,ufficio);
 
-        System.out.println("\nPESI NODI:");
-        for(Nodo n:Nodo.nodiCreati){
-            System.out.println(n.nome+" "+n.pesoCorrente);
+        //stampa risoluzione problema
+        System.out.print("percorso scelto:\n");
+        for(Node node : path) {
+            System.out.println(node.toString());
+
         }
+
+        //stampa info nodi
+        System.out.print("\ninfo nodi grafo:\n");
+        for(Node node : g.getNodes()) {
+            System.out.println(node.toString());
+
+        }
+
+
+
+
 
     }
 }
