@@ -13,6 +13,7 @@ public class Node {
     Node(String name){
         this.name = name;
         links = new Vector<>();
+        currentWeight = 0;
         precedentNode = null;
 
     }

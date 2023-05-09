@@ -97,7 +97,7 @@ public class Graph {
 
             //inverto path
             Vector<Node> invertedPath= new Vector<>(path.size(),1);
-            for(int i=path.size()-1; i >= 0; i--){
+            for(int i = path.size()-1; i >= 0; i--){
                 invertedPath.add(path.get(i));
             }
 
